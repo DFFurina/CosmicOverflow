@@ -1,4 +1,5 @@
 {
   "item.cosmic_overflow.parity_sample": "Parity-Biased Sample",
-  "itemGroup.cosmic_overflow": "Cosmic Overflow"
+  "itemGroup.cosmic_overflow": "Cosmic Overflow",
+  "message.cosmic_overflow.parity_sample.measured": "Parity bias: %s° ± %s°"
 }
