@@ -13,7 +13,7 @@ public final class ModItems {
     public static final DeferredItem<ParitySampleItem> PARITY_SAMPLE =
             ITEMS.registerItem(
                     "parity_sample",
-                    properties -> new ParitySampleItem(0.427, 0.012, properties)
+                    properties -> new ParitySampleItem(properties.component(ModDataComponents.PARITY_READING, ParitySampleItem.DEFAULT_READING))
             );
 
     private ModItems() {

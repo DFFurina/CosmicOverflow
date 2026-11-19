@@ -1,6 +1,7 @@
 package dev.dffurina.cosmic_overflow;
 
 import dev.dffurina.cosmic_overflow.registry.ModCreativeTabs;
+import dev.dffurina.cosmic_overflow.registry.ModDataComponents;
 import dev.dffurina.cosmic_overflow.registry.ModItems;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -13,6 +14,7 @@ public final class CosmicOverflowMod {
     public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
     public CosmicOverflowMod(IEventBus modEventBus) {
+        ModDataComponents.register(modEventBus);
         ModItems.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         LOGGER.info("Cosmic Overflow initialized");

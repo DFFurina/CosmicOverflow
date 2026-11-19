@@ -1,9 +1,9 @@
 package dev.dffurina.cosmic_overflow.item;
 
-import java.util.ConcurrentModificationException;
 import java.util.Locale;
 
 import dev.dffurina.cosmic_overflow.measurement.ParityReading;
+import dev.dffurina.cosmic_overflow.registry.ModDataComponents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -16,13 +16,11 @@ import net.minecraft.world.level.Level;
 public final class ParitySampleItem extends Item {
     private static final int MEASUREMENT_COOLDOWN_TICKS = 20;
 
-    private final double baseBias;
-    private final double baseUncertainty;
+    public static final ParityReading DEFAULT_READING =
+            new ParityReading(0.114, 0.007);
 
-    public ParitySampleItem(double baseBias, double baseUncertainty, Item.Properties properties) {
+    public ParitySampleItem(Item.Properties properties) {
         super(properties);
-        this.baseBias = baseBias;
-        this.baseUncertainty = baseUncertainty;
     }
 
     @Override
@@ -34,7 +32,7 @@ public final class ParitySampleItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         if (!level.isClientSide) {
-            ParityReading reading = measure();
+            ParityReading reading = measure(stack);
             player.getCooldowns().addCooldown(
                     this,
                     MEASUREMENT_COOLDOWN_TICKS
@@ -51,7 +49,10 @@ public final class ParitySampleItem extends Item {
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 
-    private  ParityReading measure() {
-        return new ParityReading(baseBias, baseUncertainty);
+    private ParityReading measure(ItemStack stack) {
+        return stack.getOrDefault(
+                ModDataComponents.PARITY_READING,
+                DEFAULT_READING
+        );
     }
 }
