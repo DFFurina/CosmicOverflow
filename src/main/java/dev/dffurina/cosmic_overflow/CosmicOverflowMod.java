@@ -1,5 +1,6 @@
 package dev.dffurina.cosmic_overflow;
 
+import dev.dffurina.cosmic_overflow.registry.ModBlocks;
 import dev.dffurina.cosmic_overflow.registry.ModCreativeTabs;
 import dev.dffurina.cosmic_overflow.registry.ModDataComponents;
 import dev.dffurina.cosmic_overflow.registry.ModItems;
@@ -16,6 +17,7 @@ public final class CosmicOverflowMod {
     public CosmicOverflowMod(IEventBus modEventBus) {
         ModDataComponents.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         LOGGER.info("Cosmic Overflow initialized");
     }

@@ -17,8 +17,10 @@ public final class ModCreativeTabs {
             CREATIVE_TABS.register("cosmic_overflow", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.cosmic_overflow"))
                     .icon(() -> new ItemStack(ModItems.PARITY_SAMPLE.get()))
-                    .displayItems((parameters, output) ->
-                            output.accept(ModItems.PARITY_SAMPLE.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ModItems.PARITY_SAMPLE.get());
+                        output.accept(ModBlocks.PARITY_BIASED_ORE_ITEM.get());
+                    })
                     .build());
 
     private ModCreativeTabs() {

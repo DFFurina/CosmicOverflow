@@ -1,5 +1,6 @@
 {
   "item.cosmic_overflow.parity_sample": "宇称偏置矿样本",
   "itemGroup.cosmic_overflow": "溢出宇宙",
-  "message.cosmic_overflow.parity_sample.measured": "宇称偏置读数：%s° ± %s°"
+  "message.cosmic_overflow.parity_sample.measured": "宇称偏置读数：%s° ± %s°",
+  "block.cosmic_overflow.parity_biased_ore": "宇称偏置矿"
 }
